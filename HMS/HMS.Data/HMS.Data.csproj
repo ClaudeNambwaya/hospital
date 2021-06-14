@@ -58,6 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HMSContext.cs" />
+    <Compile Include="Migrations\202106140834137_BasicEntites.cs" />
+    <Compile Include="Migrations\202106140834137_BasicEntites.designer.cs">
+      <DependentUpon>202106140834137_BasicEntites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141216567_identityframeworkreference.cs" />
+    <Compile Include="Migrations\202106141216567_identityframeworkreference.designer.cs">
+      <DependentUpon>202106141216567_identityframeworkreference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +78,14 @@
       <Project>{5D713F17-17D7-449B-A496-4A743A2E896A}</Project>
       <Name>HMS.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106140834137_BasicEntites.resx">
+      <DependentUpon>202106140834137_BasicEntites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141216567_identityframeworkreference.resx">
+      <DependentUpon>202106141216567_identityframeworkreference.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
