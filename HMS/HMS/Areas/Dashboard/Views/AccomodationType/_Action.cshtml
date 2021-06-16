@@ -19,10 +19,12 @@
                 </div>
                 <div class="mb-3">
                     <label>Description</label>
-                    <textarea class="form-control" name="Description" placeholder="Enter Accomodation Type Description.">
-                    </textarea>
+                    <textarea class="form-control" name="Description" placeholder="Enter Accomodation Type Description."></textarea>
                 </div>
             </form>
+        </div>
+        <div class="errorDiv">
+
         </div>
         <div class="modal-footer">
             <button id="actionButton" type="button" class="btn btn-primary">Save Changes</button>
@@ -31,6 +33,25 @@
     </div>
 }
 
+
+<script>
+     $("#actionButton").click(function () {
+        $.ajax({
+            url: '@Url.Action("Action", "AccomodationType")',
+            type: "post",
+            data: $("#actionForm").serialize()
+        })
+            .done(function (response) {
+                if (response.Success)
+                {
+                    location.reload();
+                }
+                else {
+                    $("errorDiv").html(response.Message);
+                }
+            });
+     });
+</script>>
 
 
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HMS.Services
 {
-    public class AccomodationTypeService
+    public class  AccomodationTypeService
     {
         public IEnumerable<AccomodationType> GetAllAccomodationType()
         {

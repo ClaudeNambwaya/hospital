@@ -1,4 +1,5 @@
 ﻿using HMS.Areas.Dashboard.ViewModels;
+using HMS.Entities;
 using HMS.Services;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,31 @@ namespace HMS.Areas.Dashboard.Controllers
             AccomodationTypesActionModels model = new AccomodationTypesActionModels();
 
             return PartialView("_Action", model);
+        }
+
+        [HttpPost]
+        public JsonResult Action(AccomodationTypesActionModels model)
+        {
+            JsonResult json = new JsonResult();
+
+            AccomodationType accomodationType = new AccomodationType();
+
+            accomodationType.Name = model.Name;
+            accomodationType.Description = model.Description;
+
+
+            var result = accomodationTypeServices.SaveAccomodationType(accomodationType);
+
+            if (result)
+            {
+                json.Data = new { Success = true };
+            }
+            else
+            {
+                json.Data = new { Success = false, Message = "Unable to add Accomodation Type." };
+            }
+
+            return json;
         }
     }
 }
