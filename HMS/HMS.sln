@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Entities", "HMS.Entitie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Data", "HMS.Data\HMS.Data.csproj", "{A9FD8621-04CB-438C-A801-ACEEE37D331D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Services", "HMS.Services\HMS.Services.csproj", "{3EED4770-105D-4133-A46F-BA5E3C897ECB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A9FD8621-04CB-438C-A801-ACEEE37D331D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9FD8621-04CB-438C-A801-ACEEE37D331D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9FD8621-04CB-438C-A801-ACEEE37D331D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EED4770-105D-4133-A46F-BA5E3C897ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EED4770-105D-4133-A46F-BA5E3C897ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EED4770-105D-4133-A46F-BA5E3C897ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EED4770-105D-4133-A46F-BA5E3C897ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

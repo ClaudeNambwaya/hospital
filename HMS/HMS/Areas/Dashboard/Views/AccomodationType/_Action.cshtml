@@ -1,0 +1,36 @@
+﻿@model HMS.Areas.Dashboard.ViewModels.AccomodationTypesActionModels
+
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                Create Accomodation Type
+            </h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="actionForm">
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input class="form-control" name="Name" aria-describedby="Enter Accomodation Type Name">
+                </div>
+                <div class="mb-3">
+                    <label>Description</label>
+                    <textarea class="form-control" name="Description" placeholder="Enter Accomodation Type Description.">
+                    </textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button id="actionButton" type="button" class="btn btn-primary">Save Changes</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+}
+
+
+
+
