@@ -27,9 +27,22 @@ namespace HMS.Areas.Dashboard.Controllers
         }
 
         [HttpGet]
-        public ActionResult Action()
+        public ActionResult Action(int? ID)
         {
             AccomodationTypesActionModels model = new AccomodationTypesActionModels();
+
+            if(ID.HasValue)// We are trying to edit a record
+            {
+                var accomodationType = accomodationTypeServices.GetAccomodationTypeByID(ID.Value);
+
+                model.ID = accomodationType.ID;
+                model.Name = accomodationType.Name;
+                model.Description = accomodationType.Description;
+            }
+            else// We are trying to create a record
+            {
+
+            }
 
             return PartialView("_Action", model);
         }

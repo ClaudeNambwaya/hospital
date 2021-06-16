@@ -17,6 +17,13 @@ namespace HMS.Services
             return context.AccomodationTypes.ToList();
         }
 
+        public AccomodationType GetAccomodationTypeByID(int ID)
+        {
+            var context = new HMSContext();
+
+            return context.AccomodationTypes.Find(ID);
+        }
+
         public bool SaveAccomodationType(AccomodationType accomodationType)
         {
             var context = new HMSContext();

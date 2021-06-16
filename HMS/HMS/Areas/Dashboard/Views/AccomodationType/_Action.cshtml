@@ -5,7 +5,14 @@
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">
-                Create Accomodation Type
+                @if (Model.ID > 0)
+                {
+                    <span>Edit Accomodation Type</span>
+                }
+                else
+                {
+                    <span>Create Accomodation Type</span>
+                }
             </h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
@@ -13,13 +20,14 @@
         </div>
         <div class="modal-body">
             <form id="actionForm">
+                <input type="hidden" name="ID" value="Model.ID" />
                 <div class="mb-3">
                     <label>Name</label>
-                    <input class="form-control" name="Name" aria-describedby="Enter Accomodation Type Name">
+                    <input class="form-control" name="Name" aria-describedby="Enter Accomodation Type Name." value="@Model.Name">
                 </div>
                 <div class="mb-3">
                     <label>Description</label>
-                    <textarea class="form-control" name="Description" placeholder="Enter Accomodation Type Description."></textarea>
+                    <textarea class="form-control" name="Description" placeholder="Enter Accomodation Type Description.">@Model.Description</textarea>
                 </div>
             </form>
         </div>
