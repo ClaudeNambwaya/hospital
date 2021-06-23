@@ -15,7 +15,7 @@ namespace HMS.Areas.Dashboard.Controllers
         // GET: Dashboard/AccomodationType
         public ActionResult Index()
         {
-            return View();
+            return View(); 
         }
 
         public ActionResult Listing()
@@ -39,11 +39,6 @@ namespace HMS.Areas.Dashboard.Controllers
                 model.Name = accomodationType.Name;
                 model.Description = accomodationType.Description;
             }
-            else// We are trying to create a record
-            {
-
-            }
-
             return PartialView("_Action", model);
         }
 
@@ -52,13 +47,27 @@ namespace HMS.Areas.Dashboard.Controllers
         {
             JsonResult json = new JsonResult();
 
-            AccomodationType accomodationType = new AccomodationType();
+            var result = false;
 
-            accomodationType.Name = model.Name;
-            accomodationType.Description = model.Description;
+            if (model.ID > 0)// We are trying to edit a record
+            {
+                var accomodationType = accomodationTypeServices.GetAccomodationTypeByID(model.ID);
 
+                accomodationType.Name = model.Name;
+                accomodationType.Description = model.Description;
 
-            var result = accomodationTypeServices.SaveAccomodationType(accomodationType);
+                result = accomodationTypeServices.UpdateAccomodationType(accomodationType);
+            }
+            else// We are trying to create a record
+            {
+
+                AccomodationType accomodationType = new AccomodationType(); 
+
+                accomodationType.Name = model.Name;
+                accomodationType.Description = model.Description;
+
+                result = accomodationTypeServices.SaveAccomodationType(accomodationType);
+            }
 
             if (result)
             {
@@ -66,10 +75,48 @@ namespace HMS.Areas.Dashboard.Controllers
             }
             else
             {
-                json.Data = new { Success = false, Message = "Unable to add Accomodation Type." };
+                json.Data = new { Success = false, Message = "Unable to perform action on Accomodation Type." };
             }
 
             return json;
         }
+
+        [HttpGet]
+        public ActionResult Delete(int ID)
+        {
+            AccomodationTypesActionModels model = new AccomodationTypesActionModels();
+
+
+            var accomodationType = accomodationTypeServices.GetAccomodationTypeByID(ID);
+
+            model.ID = accomodationType.ID;
+
+            return PartialView("_Delete", model);
+        }
+
+
+        [HttpPost]
+        public JsonResult Delete(AccomodationTypesActionModels model)
+        {
+            JsonResult json = new JsonResult();
+
+            var result = false;
+
+            var accomodationType = accomodationTypeServices.GetAccomodationTypeByID(model.ID);
+
+            result = accomodationTypeServices.DeleteAccomodationType(accomodationType);
+
+            if (result)
+            {
+                json.Data = new { Success = true };
+            }
+            else
+            {
+                json.Data = new { Success = false, Message = "Unable to perform action on Accomodation Type." };
+            }
+
+            return json;
+        }
+
     }
 }

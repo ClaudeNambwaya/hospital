@@ -2027,6 +2027,7 @@
     <Content Include="Areas\Dashboard\Views\AccomodationType\Index.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationType\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\AccomodationType\_Action.cshtml" />
+    <Content Include="Areas\Dashboard\Views\AccomodationType\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
